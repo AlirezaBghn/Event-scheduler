@@ -1,8 +1,9 @@
-# React + Vite
+# React - Vite - Tailwind 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-The "Event Scheduler" is an educational project built using React, Tailwind CSS, and Vite, and can be run by simply executing the provided code.
 
-Currently, two official plugins are available:
+npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm run dev
+
+https://event-scheduler-96hy.onrender.com/
