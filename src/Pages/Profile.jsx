@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate(); // استفاده از useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -15,7 +15,9 @@ const Profile = () => {
   const handleRemove = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("isLoggedIn");
-    navigate("/LoginForm"); // استفاده صحیح از useNavigate
+    setUser(null);
+    localStorage.setItem("fullName", "Event Scheduler");
+    navigate("/LoginForm");
   };
 
   if (!user) {

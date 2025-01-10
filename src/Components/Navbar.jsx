@@ -53,14 +53,12 @@ const Navbar = () => {
             <Link to={"/"} className="py-5 px-3 text-black hover:text-gray-700">
               Home
             </Link>
-            {isLoggedIn && (
-              <Link
-                to={"/profile"}
-                className="py-5 px-3 text-black hover:text-gray-700"
-              >
-                Profile
-              </Link>
-            )}
+            <Link
+              to={"/profile"}
+              className="py-5 px-3 text-black hover:text-gray-700"
+            >
+              Profile
+            </Link>
             <Link
               to={"/LoginForm"}
               className="py-5 px-3 text-black hover:text-gray-700"
