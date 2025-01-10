@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
 import LoginForm from "./Pages/LoginForm";
 import SignupForm from "./Pages/SignupForm";
+import Profile from "./Pages/Profile";
 import EventDetails from "./Pages/EventDetails";
 
 function App() {
@@ -12,14 +13,10 @@ function App() {
       <Navbar />
       <div className="flex-grow">
         <Routes>
-          {/* Home Page */}
           <Route path="/" element={<Home />} />
-
-          {/* Login and Signup Pages */}
           <Route path="/LoginForm" element={<LoginForm />} />
           <Route path="/SignupForm" element={<SignupForm />} />
-
-          {/* Event Details Page */}
+          <Route path="/profile" element={<Profile />} />
           <Route path="/event/:id" element={<EventDetails />} />
         </Routes>
       </div>

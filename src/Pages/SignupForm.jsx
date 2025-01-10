@@ -1,15 +1,36 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("user", JSON.stringify(formData));
+    alert("Sign-up successful!");
+    navigate("/LoginForm");
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-[#a8edea] to-[#fed6e3]">
-      <form className="w-[450px] min-h-[600px] rounded-lg shadow-lg p-8 bg-gradient-to-b from-[#E3FDF5] to-[#FFE6FA]">
+      <form
+        className="w-[450px] min-h-[600px] rounded-lg shadow-lg p-8 bg-gradient-to-b from-[#E3FDF5] to-[#FFE6FA]"
+        onSubmit={handleSubmit}
+      >
         <div className="flex flex-col items-center space-y-4">
           <header className="text-center">
             <h2 className="text-3xl font-serif text-gray-800">Sign Up</h2>
@@ -24,6 +45,9 @@ const SignupForm = () => {
               </span>
               <input
                 type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
                 placeholder="Full Name"
                 required
                 className="w-full pl-10 py-3 text-sm text-gray-700 bg-white rounded-md outline-none focus:ring-2 focus:ring-indigo-300"
@@ -36,6 +60,9 @@ const SignupForm = () => {
               </span>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email Address"
                 required
                 className="w-full pl-10 py-3 text-sm text-gray-700 bg-white rounded-md outline-none focus:ring-2 focus:ring-indigo-300"
@@ -48,6 +75,9 @@ const SignupForm = () => {
               </span>
               <input
                 type={passwordShown ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Password"
                 required
                 className="w-full pl-10 py-3 text-sm text-gray-700 bg-white rounded-md outline-none focus:ring-2 focus:ring-indigo-300"
